@@ -1,4 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React Calculator (MVP)
+
+In this project I developed an `MVP` for a fictional company that requires arithemetic calculations in thier day-to-day business. The project has been split into multiple milestones, and each milestone has functional and technical requirements.
+
+This project was completed in line with standards provided by [Microverse](https://www.microverse.org/ 'The Global School for Remote Software Developers!').
+
+-- See [Live URL](https://mvp-react-calculator.herokuapp.com/)
+
+## Technologies
+
+- React
+- JavaScript (ES6)
+- Node.js
+- npm
+- React-Create-App
+- React-Create-app-buildback for deployment to `Heroku Cloud`. See [Docs](https://github.com/mars/create-react-app-buildpack)
+- CSS
+
+## Installation / Usage
+
+> Clone the repository to your local machine
+
+```sh
+$ git clone https://github.com/johnsonsirv/mvp-react-calculator.git
+```
+
+> Open the terminal
 
 ## Available Scripts
 
@@ -66,3 +92,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## How to contribute
+
+1. Fork it (https://github.com/johnsonsirv/mvp-react-calculator/fork)
+2. Create your feature branch (git checkout -b feature/[choose-a-name])
+3. Commit your changes (git commit -m 'What this commit will fix/add')
+4. Push to the branch (git push origin feature/[chosen name])
+5. Create a new Pull Request
+   > You can also create [issues](https://github.com/johnsonsirv/mvp-react-calculator/issues)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file for details.
