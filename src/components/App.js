@@ -4,11 +4,18 @@ import ButtonPanel from './buttonPanel';
 import './App.css';
 
 class App extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      result: '0',
+    };
+  }
+
   render() {
+    const { result } = this.state;
     return (
       <div>
-        <Display result={'0'} />
+        <Display result={result} />
         <ButtonPanel />
       </div>
     );

@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Button extends Component {
-  state = {  }
-  render() { 
-    return ( 
-      <button>{this.props.name}</button>
-     );
-  }
-}
- 
+const Button = ({ name }) => <button type="button">{name}</button>;
+
+Button.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
 export default Button;
