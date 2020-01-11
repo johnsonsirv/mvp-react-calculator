@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../css/button.css';
 
-const Button = ({ name }) => <button type="button">{name}</button>;
+const Button = ({ name }) => <div className="btn">{name}</div>;
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
