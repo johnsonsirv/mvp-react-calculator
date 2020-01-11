@@ -1,10 +1,23 @@
 .btn {
-  width: 25%;
   height: 100%;
   text-align: center;
   color: #000;
   font-size: 2em;
-  border: solid 1px #313131;
+  border: solid 1px #afadad;
   cursor: pointer;
   line-height: 2.3em;
+  background-color: #ff8800;
+}
+
+.btn-25 {
+  width: 25%;
+}
+.btn-50 {
+  width: 50%;
+}
+.btn-default {
+  background-color: #ff8800;
+}
+.btn-secondary {
+  background-color: #e4e3e3;
 }
