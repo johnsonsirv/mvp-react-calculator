@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Display from './display';
 import ButtonPanel from './buttonPanel';
-import './App.css';
+import '../css/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     const { result } = this.state;
     return (
-      <div>
+      <div className="app">
         <Display result={result} />
         <ButtonPanel />
       </div>

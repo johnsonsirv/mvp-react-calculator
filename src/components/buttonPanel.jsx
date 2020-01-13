@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from './button';
+import '../css/buttonPanel.css';
 
 class ButtonPanel extends Component {
   constructor(props) {
@@ -10,33 +11,33 @@ class ButtonPanel extends Component {
   render() {
     return (
       <div>
-        <div>
-          <Button name="AC" />
-          <Button name="+/-" />
-          <Button name="%" />
+        <div className="row">
+          <Button name="AC" color="gray" />
+          <Button name="+/-" color="gray" />
+          <Button name="%" color="gray" />
           <Button name="÷" />
         </div>
-        <div>
-          <Button name="7" />
-          <Button name="8" />
-          <Button name="9" />
-          <Button name="X" />
+        <div className="row">
+          <Button name="7" color="gray" />
+          <Button name="8" color="gray" />
+          <Button name="9" color="gray" />
+          <Button name="x" />
         </div>
-        <div>
-          <Button name="4" />
-          <Button name="5" />
-          <Button name="6" />
+        <div className="row">
+          <Button name="4" color="gray" />
+          <Button name="5" color="gray" />
+          <Button name="6" color="gray" />
           <Button name="-" />
         </div>
-        <div>
-          <Button name="1" />
-          <Button name="2" />
-          <Button name="3" />
+        <div className="row">
+          <Button name="1" color="gray" />
+          <Button name="2" color="gray" />
+          <Button name="3" color="gray" />
           <Button name="+" />
         </div>
-        <div>
-          <Button name="0" />
-          <Button name="." />
+        <div className="row">
+          <Button name="0" wide color="gray" />
+          <Button name="." color="gray" />
           <Button name="=" />
         </div>
       </div>
