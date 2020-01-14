@@ -1,7 +1,8 @@
 import operate from './operate';
 
 const calculate = (data, btnName) => {
-  const temp = data;
+  let { total } = data;
+  const { next, operation } = data;
   const calcOperations = {
     AC: 0,
     '+/-': -1,
@@ -11,12 +12,12 @@ const calculate = (data, btnName) => {
   const operations = ['÷', 'x', '-', '+'];
 
   if (calc.includes(btnName)) {
-    temp.total = data.total * data.next * calcOperations[btnName];
+    total = total * next * calcOperations[btnName];
   }
   if (operations.includes(btnName)) {
-    temp.total = operate(data.total, data.next, btnName);
+    total = operate(total, next, btnName);
   }
-  return data;
+  return { total, next, operation };
 };
 
 export default calculate;

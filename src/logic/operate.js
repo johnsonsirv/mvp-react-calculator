@@ -6,7 +6,11 @@ const operate = (numberOne, numberTwo, operation) => {
   const n2 = new Big(numberTwo);
   switch (operation) {
     case '÷':
-      result = n1.div(n2);
+      try {
+        result = n1.div(n2);
+      } catch (error) {
+        result = 'Er';
+      }
       break;
     case 'x':
       result = n1.times(n2);
