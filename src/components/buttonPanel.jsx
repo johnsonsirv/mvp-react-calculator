@@ -8,37 +8,55 @@ const ButtonPanel = ({ clickHandler }) => {
     clickHandler(btnName);
   };
 
+  const buttonOperators = ['÷', 'x', '-', '+', '='];
+  const buttonGroups = [
+    {
+      id: 'group1',
+      names: ['AC', '+/-', '%', '÷'],
+    },
+    {
+      id: 'group2',
+      names: ['7', '8', '9', 'x'],
+    },
+    {
+      id: 'group3',
+      names: ['4', '5', '6', '-'],
+    },
+    {
+      id: 'group4',
+      names: ['1', '2', '3', '+'],
+    },
+    {
+      id: 'group5',
+      names: ['0', '.', '='],
+    },
+  ];
+
+  const generateButton = (name, handleClick, operators, childKey) => {
+    const color = operators.includes(name) ? 'orange' : 'gray';
+    return (
+      <Button
+        name={name}
+        wide={name === '0'}
+        color={color}
+        clickHandler={handleClick}
+        key={childKey}
+      />
+    );
+  };
+
   return (
     <div>
-      <div className="row">
-        <Button name="AC" color="gray" clickHandler={handleClick} />
-        <Button name="+/-" color="gray" clickHandler={handleClick} />
-        <Button name="%" color="gray" clickHandler={handleClick} />
-        <Button name="÷" clickHandler={handleClick} />
-      </div>
-      <div className="row">
-        <Button name="7" color="gray" clickHandler={handleClick} />
-        <Button name="8" color="gray" clickHandler={handleClick} />
-        <Button name="9" color="gray" clickHandler={handleClick} />
-        <Button name="x" clickHandler={handleClick} />
-      </div>
-      <div className="row">
-        <Button name="4" color="gray" clickHandler={handleClick} />
-        <Button name="5" color="gray" clickHandler={handleClick} />
-        <Button name="6" color="gray" clickHandler={handleClick} />
-        <Button name="-" clickHandler={handleClick} />
-      </div>
-      <div className="row">
-        <Button name="1" color="gray" clickHandler={handleClick} />
-        <Button name="2" color="gray" clickHandler={handleClick} />
-        <Button name="3" color="gray" clickHandler={handleClick} />
-        <Button name="+" clickHandler={handleClick} />
-      </div>
-      <div className="row">
-        <Button name="0" wide color="gray" clickHandler={handleClick} />
-        <Button name="." color="gray" clickHandler={handleClick} />
-        <Button name="=" clickHandler={handleClick} />
-      </div>
+      {buttonGroups.map(group => (
+        <div className="row" key={group.id}>
+          {group.names.map((name, index) => generateButton(
+            name,
+            handleClick,
+            buttonOperators,
+            `${group.id}-${index}`,
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
