@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../css/button.css';
 
-const Button = ({
-  name, wide, color, clickHandler,
-
-}) => {
+const Button = ({ name, wide, color, clickHandler }) => {
   const btnStyles = {
     orange: 'btn-default',
     gray: 'btn-secondary',
@@ -17,7 +14,7 @@ const Button = ({
     <div
       className={classes}
       onClick={() => clickHandler(name)}
-      onKeyDown={() => clickHandler(name)}
+      onKeyDown={() => {}}
       role="button"
       tabIndex="0"
     >

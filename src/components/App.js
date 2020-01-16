@@ -17,6 +17,7 @@ class App extends Component {
       operations: ['÷', 'x', '-', '+'],
       finished: false,
       finishedTotal: null,
+      statusText: '',
     };
   }
 
@@ -26,9 +27,8 @@ class App extends Component {
     next = operandStack.shift();
     operation = operatorStack.shift();
     let objTotal = calculate({ prevTotal, next, operation }, operation);
-    const stop = operatorStack.length;
     let i = 0;
-    while (i < stop) {
+    while (i < operatorStack.length) {
       prevTotal = objTotal.total;
       next = operandStack[i];
       operation = operatorStack[i];
@@ -40,38 +40,47 @@ class App extends Component {
   };
 
   handleClick = btnName => {
-    const { operandStack, operatorStack, operations, finished } = this.state;
-    let { result } = this.state;
     this.setState({ finished: false, finishedTotal: null });
-    let display;
+    const { operandStack, operatorStack, operations, statusText } = this.state;
+    let { result } = this.state;
+    let display, logText;
     if (!operations.includes(btnName)) {
       display =
-        result === '0' || operations.includes(result) || !finished
+        result === '0' || operations.includes(result)
           ? `${btnName}`
           : `${result}${btnName}`;
+      logText = `${statusText}${btnName}`
     } else {
       operandStack.push(result);
       operatorStack.push(btnName);
       display = btnName;
+      logText = `${statusText}${btnName}`
     }
 
     if (btnName === '=') {
       operandStack.push(result);
       const output = this.performCalculation(operandStack, operatorStack);
-      this.setState({ finishedTotal: output, finished: true });
-      this.setState({ operandStack: [], operatorStack: [] });
+      this.setState({
+        finishedTotal: output,
+        finished: true,
+        operandStack: [],
+        operatorStack: [],
+      });
+      logText = '';
+      display = '0';
     }
-
+    
+    this.setState({ statusText: logText });
     this.setState({ result: display });
   };
 
   render() {
-    let { result, finished, finishedTotal } = this.state;
+    let { result, finished, finishedTotal, statusText } = this.state;
     result = finished ? finishedTotal : result;
-    console.log('state after = after render', this.state);
+    statusText = finished ? 'Ready' : statusText;
     return (
       <div className="app">
-        <Display result={result} />
+        <Display result={result} statusText={statusText} />
         <ButtonPanel clickHandler={this.handleClick} />
       </div>
     );

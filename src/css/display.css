@@ -1,11 +1,18 @@
 .display {
   display: flex;
+  flex-direction: column;
   height: 100px;
   background-color: #aaa6a6;
   color: #fff;
   padding: 0.3em;
   justify-content: right;
   align-items: flex-end;
-  font-size: 2.4em;
   font-weight: bold;
+}
+.display-text {
+  font-size: 1.7em;
+  height: 60%;
+}
+.display-result {
+  font-size: 2.4em;
 }
