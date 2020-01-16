@@ -4,6 +4,7 @@ const operate = (numberOne, numberTwo, operation) => {
   let result = new Big(0);
   const n1 = new Big(numberOne);
   const n2 = new Big(numberTwo);
+
   switch (operation) {
     case '÷':
       try {
@@ -25,7 +26,7 @@ const operate = (numberOne, numberTwo, operation) => {
       break;
   }
 
-  return result;
+  return result.toString();
 };
 
 export default operate;

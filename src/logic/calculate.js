@@ -1,8 +1,9 @@
 import operate from './operate';
 
 const calculate = (data, btnName) => {
-  let { total } = data;
+  let { prevTotal: total } = data;
   const { next, operation } = data;
+
   const calcOperations = {
     AC: 0,
     '+/-': -1,
