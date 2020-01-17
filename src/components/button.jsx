@@ -4,7 +4,6 @@ import '../css/button.css';
 
 const Button = ({
   name, wide, color, clickHandler,
-
 }) => {
   const btnStyles = {
     orange: 'btn-default',
@@ -17,7 +16,7 @@ const Button = ({
     <div
       className={classes}
       onClick={() => clickHandler(name)}
-      onKeyDown={() => clickHandler(name)}
+      onKeyDown={() => {}}
       role="button"
       tabIndex="0"
     >
