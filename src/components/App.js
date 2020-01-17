@@ -51,6 +51,8 @@ class App extends Component {
     return { doneStatusText: '', doneDisplayText: '0' };
   };
 
+  updateDisplay = (statusText, result) => this.setState({ statusText, result });
+
   handleClick = btnName => {
     const {
       operandStack,
@@ -75,9 +77,10 @@ class App extends Component {
       statusText = `${statusText}${btnName}`;
     }
 
-    if (btnName === 'AC') {
+    if (calculation.includes(btnName)) {
+      const next = btnName === 'AC' ? 0 : 1;
       const output = calculate(
-        { prevTotal: result, next: 0, operation: btnName },
+        { prevTotal: result, next, operation: btnName },
         btnName,
       );
       const { doneStatusText, doneDisplayText } = this.setTotal(output);
@@ -85,6 +88,7 @@ class App extends Component {
       statusText = doneStatusText;
       display = doneDisplayText;
     }
+
     if (btnName === '=') {
       operandStack.push(result);
       const output = this.doArithmetic(operandStack, operatorStack);
@@ -94,7 +98,7 @@ class App extends Component {
       display = doneDisplayText;
     }
 
-    this.setState({ statusText, result: display });
+    this.updateDisplay(statusText, display);
   };
 
   render() {
@@ -110,4 +114,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
