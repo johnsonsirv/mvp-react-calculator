@@ -92,10 +92,10 @@ class App extends Component {
     if (btnName === '=') {
       operandStack.push(result);
       const output = this.doArithmetic(operandStack, operatorStack);
-      const { doneStatusText, doneDisplayText } = this.setTotal(output);
+      const { doneStatusText } = this.setTotal(output);
 
       statusText = doneStatusText;
-      display = doneDisplayText;
+      display = output.total;
     }
 
     this.updateDisplay(statusText, display);
