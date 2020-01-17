@@ -14,14 +14,15 @@ class App extends Component {
       result: '0',
       operandStack: [],
       operatorStack: [],
-      operations: ['÷', 'x', '-', '+'],
+      arithmetic: ['÷', 'x', '-', '+'],
+      calculation: ['AC', '+/-', '%'],
       finished: false,
       finishedTotal: null,
       statusText: '',
     };
   }
 
-  performCalculation = (operandStack, operatorStack) => {
+  doArithmetic = (operandStack, operatorStack) => {
     let { total: prevTotal, next, operation } = this.state;
     prevTotal = operandStack.shift();
     next = operandStack.shift();
@@ -36,46 +37,69 @@ class App extends Component {
       i += 1;
     }
 
-    return `${objTotal.total}`;
+    return objTotal;
+  };
+
+  setTotal = ({ total }) => {
+    this.setState({
+      finishedTotal: `${total}`,
+      finished: true,
+      operandStack: [],
+      operatorStack: [],
+    });
+
+    return { doneStatusText: '', doneDisplayText: '0' };
   };
 
   handleClick = btnName => {
+    const {
+      operandStack,
+      operatorStack,
+      arithmetic,
+      calculation,
+      result,
+    } = this.state;
+    let { statusText } = this.state;
     this.setState({ finished: false, finishedTotal: null });
-    const { operandStack, operatorStack, operations, statusText } = this.state;
-    let { result } = this.state;
-    let display, logText;
-    if (!operations.includes(btnName)) {
-      display =
-        result === '0' || operations.includes(result)
-          ? `${btnName}`
-          : `${result}${btnName}`;
-      logText = `${statusText}${btnName}`
+
+    let display;
+    if (!arithmetic.includes(btnName)) {
+      display = result === '0' || arithmetic.includes(result)
+        ? `${btnName}`
+        : `${result}${btnName}`;
+      statusText = `${statusText}${btnName}`;
     } else {
       operandStack.push(result);
       operatorStack.push(btnName);
       display = btnName;
-      logText = `${statusText}${btnName}`
+      statusText = `${statusText}${btnName}`;
     }
 
+    if (btnName === 'AC') {
+      const output = calculate(
+        { prevTotal: result, next: 0, operation: btnName },
+        btnName,
+      );
+      const { doneStatusText, doneDisplayText } = this.setTotal(output);
+
+      statusText = doneStatusText;
+      display = doneDisplayText;
+    }
     if (btnName === '=') {
       operandStack.push(result);
-      const output = this.performCalculation(operandStack, operatorStack);
-      this.setState({
-        finishedTotal: output,
-        finished: true,
-        operandStack: [],
-        operatorStack: [],
-      });
-      logText = '';
-      display = '0';
+      const output = this.doArithmetic(operandStack, operatorStack);
+      const { doneStatusText, doneDisplayText } = this.setTotal(output);
+
+      statusText = doneStatusText;
+      display = doneDisplayText;
     }
-    
-    this.setState({ statusText: logText });
-    this.setState({ result: display });
+
+    this.setState({ statusText, result: display });
   };
 
   render() {
-    let { result, finished, finishedTotal, statusText } = this.state;
+    let { result, statusText } = this.state;
+    const { finished, finishedTotal } = this.state;
     result = finished ? finishedTotal : result;
     statusText = finished ? 'Ready' : statusText;
     return (

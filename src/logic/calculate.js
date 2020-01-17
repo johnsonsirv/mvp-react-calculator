@@ -9,13 +9,13 @@ const calculate = (data, btnName) => {
     '+/-': -1,
     '%': 0.1,
   };
-  const calc = ['AC', '+/-', '%'];
-  const operations = ['÷', 'x', '-', '+'];
+  const calculation = ['AC', '+/-', '%'];
+  const arithmetic = ['÷', 'x', '-', '+'];
 
-  if (calc.includes(btnName)) {
+  if (calculation.includes(btnName)) {
     total = total * next * calcOperations[btnName];
   }
-  if (operations.includes(btnName)) {
+  if (arithmetic.includes(btnName)) {
     total = operate(total, next, btnName);
   }
   return { total, next, operation };
