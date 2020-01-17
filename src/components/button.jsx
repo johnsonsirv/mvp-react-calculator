@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../css/button.css';
 
-const Button = ({ name, wide, color, clickHandler }) => {
+const Button = ({
+  name, wide, color, clickHandler,
+}) => {
   const btnStyles = {
     orange: 'btn-default',
     gray: 'btn-secondary',
