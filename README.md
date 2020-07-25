@@ -1,28 +1,29 @@
-## React Calculator (MVP)
+<h1 align="center">React Calculator (MVP)</h1>
 
-In this project I developed an `MVP` for a fictional company that requires arithemetic calculations in thier day-to-day business. The project has been split into multiple milestones, and each milestone has functional and technical requirements.
+In this project I developed a react-based calculator`MVP` for a fictional company that requires arithemetic calculations in thier day-to-day business. The project has been split into multiple milestones, and each milestone has functional and technical requirements.
 
 This project was completed in line with standards provided by [Microverse](https://www.microverse.org/ 'The Global School for Remote Software Developers!').
 
--- See [Live URL](https://mvp-react-calculator.herokuapp.com/)
+### See [Live URL](https://mvp-react-calculator.herokuapp.com/)
 
-## Technologies
+## Built with
 
 - React
 - JavaScript (ES6)
-- Node.js
 - npm
-- React-Create-App
-- React-Create-app-buildback for deployment to `Heroku Cloud`. See [Docs](https://github.com/mars/create-react-app-buildpack)
+- Create-React-App
+- Create-React-app-buildback for deployment to `Heroku Cloud`. See [Docs](https://github.com/mars/create-react-app-buildpack)
 - CSS
 
-## Installation / Usage
+## Installation
 
 > Clone the repository to your local machine
 
 ```sh
 $ git clone https://github.com/johnsonsirv/mvp-react-calculator.git
 ```
+
+## Usage
 
 > Open the terminal
 
@@ -63,35 +64,13 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Contributor(s)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[Victor Okeugo](https://angel.co/u/victorokeugo/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Github: [@johnsonsirv](https://github.com/johnsonsirv)
+- Twitter: [@vokeugo](https://twitter.com/@vokeugo/)
+- Email: [okeugo.victor.c@gmail.com]()
 
 ## How to contribute
 
